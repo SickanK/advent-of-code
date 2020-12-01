@@ -21,7 +21,36 @@ def PartOne(info):
     path2 = [0, 0]
     path2Snapshots = []
 
-    return len(arr1)
+    intersections = []
+
+    for i in arr1:
+        num = int(i[1:])
+        if(i[:1] == "U"):
+            path1[0] += num
+        if(i[:1] == "D"):
+            path1[0] -= num
+        if(i[:1] == "R"):
+            path1[1] += num
+        if(i[:1] == "L"):
+            path1[1] -= num
+        path1Snapshots.append([path1[0], path1[1]])
+
+    for i in arr2:
+        num = int(i[1:])
+        if(i[:1] == "U"):
+            path2[0] += num
+        if(i[:1] == "D"):
+            path2[0] -= num
+        if(i[:1] == "R"):
+            path2[1] += num
+        if(i[:1] == "L"):
+            path2[1] -= num
+        path2Snapshots.append([path2[0], path2[1]])
+
+    
+
+
+    return intersections
 
 
 def PartTwo(info):
