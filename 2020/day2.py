@@ -10,7 +10,7 @@ def PartOne(info):
     count = 0
 
     for i in info:
-        arr = re.split('\-|\:| ', i)
+        arr = re.split('-|:| ', i)
 
         minc = int(arr[0])
         maxc = int(arr[1])
@@ -35,7 +35,7 @@ def PartTwo(info):
     count = 0
 
     for i in info:
-        arr = re.split('\-|\:| ', i)
+        arr = re.split('-|:| ', i)
 
         minc = int(arr[0])
         maxc = int(arr[1])
