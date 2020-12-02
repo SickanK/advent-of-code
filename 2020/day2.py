@@ -15,7 +15,7 @@ def PartOne(info):
         minc = int(arr[0])
         maxc = int(arr[1])
         c = arr[2]
-        text = list(arr("")[4])
+        text = list(arr[4])
         ccount = 0
 
         for x in text:
@@ -40,7 +40,7 @@ def PartTwo(info):
         minc = int(arr[0])
         maxc = int(arr[1])
         c = arr[2]
-        text = list(arr("")[4])
+        text = list(arr[4])
         ccount = 0
 
         for x in range(0, len(text)):
