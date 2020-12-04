@@ -47,9 +47,6 @@ def PartOne(info):
             path2[1] -= num
         path2Snapshots.append([path2[0], path2[1]])
 
-    
-
-
     return intersections
 
 
