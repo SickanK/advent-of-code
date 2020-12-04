@@ -8,7 +8,6 @@ i = Input(2020, 4).getData()
 def PartOne(info):
     info = strToArr(info)
 
-    print(info)
     arr = []
     tempArr = []
     for a in info:
@@ -52,7 +51,47 @@ def PartTwo(info):
             tempArr.append(a)
     info = arr
 
-    return info
+    count = 0
+    valid = 0
+    for x in info:
+        for l in x:
+            l = l.split(" ")
+            for w in l:
+                u = w.split(":")
+                if(u[0] == "byr"):
+                    if(int(u[1]) >= 1920 and int(u[1]) <= 2002): count += 1
+                if(u[0] == "iyr"):
+                    if(int(u[1]) >= 2010 and int(u[1]) <= 2020): count += 1
+                if(u[0] == "eyr"):
+                    if(int(u[1]) >= 2020 and int(u[1]) <= 2030): count += 1
+                if(u[0] == "hgt"):
+                    s= re.findall(r"cm", u[1])
+                    b = int(re.split(r"cm|in", u[1])[0])
+                    if(len(s) > 0):
+                        if(b >= 150 and b <= 193):
+                            count += 1
+                        if(b >= 59 and b <= 76):
+                            count += 1
+                if(u[0] == "hcl"):
+                    o = re.match(r"^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", u[1])
+                    if(o != None):
+                        count += 1
+                if(u[0] == "ecl"):
+                    o = re.findall(r"amb|blu|brn|gry|grn|hzl|oth", u[1])
+                    if(o != None):
+                        count += 1
+                if(u[0] == "pid"):
+                    o = str(u[1])
+                    if(len(o) == 9):
+                        count += 1
+            if(count >= 7):
+                valid += 1
+            count = 0
+                
+                    
+                    
+
+    return valid
 
 
 # print(i)
