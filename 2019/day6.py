@@ -3,8 +3,21 @@ from tools.input import Input, strToArr, strToInt, intToStr, arrToStr
 
 i = Input(2019, 6).getData()
 
+# Create 2 of this recursive function
 
-def recursive(argument, obj, total, SAN, YOU):
+
+def recursiveP1(argument, obj, total):
+    try:
+        for x in obj[argument]:
+            total["p"] += 1
+            recursiveP1(x, obj, total)
+    except:
+        return 0
+
+    return 0
+
+
+def recursiveP2(argument, obj, total, SAN, YOU):
     try:
         if(SAN != None):
             SAN.append(argument)
@@ -14,7 +27,7 @@ def recursive(argument, obj, total, SAN, YOU):
 
         for x in obj[argument]:
             total["p"] += 1
-            recursive(x, obj, total, SAN, YOU)
+            recursiveP2(x, obj, total, SAN, YOU)
     except:
         return 0
 
@@ -38,7 +51,7 @@ def PartOne(info):
 
     for i in info:
         s = i.split(")")[1]
-        recursive(s, obj, total, None, None)
+        recursiveP1(s, obj, total)
 
     return total["p"]
 
@@ -60,8 +73,8 @@ def PartTwo(info):
     SAN = []
     YOU = []
     a = []
-    recursive("YOU", obj, total, None, YOU)
-    recursive("SAN", obj, total, SAN, None)
+    recursiveP2("YOU", obj, total, None, YOU)
+    recursiveP2("SAN", obj, total, SAN, None)
 
     for i in range(0, len(SAN)):
         for j in range(0, len(YOU)):
