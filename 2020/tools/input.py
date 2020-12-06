@@ -111,3 +111,17 @@ def intToStr(arr):
 def arrToStr(arr):
     arr = ",".join(arr)
     return arr
+
+
+def newlineParse(arr):
+    ar = []
+    tempArr = []
+    for a in arr:
+        if(a == ""):
+            ar.append(tempArr)
+            tempArr = []
+        else:
+            tempArr.append(a)
+    ar.append(tempArr)
+    arr = ar
+    return arr
