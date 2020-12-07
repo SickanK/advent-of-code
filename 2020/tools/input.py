@@ -72,6 +72,13 @@ class Input:
         cacheFile.write(f'\n{message}')
         return cacheFile
 
+    # Gets and parses from example.txt file
+    def getFromExample(self):
+        filePath = join(dirname(__file__), '../')
+        file = open(join(filePath, 'example.txt'), '+r')
+        content = file.read().split("\n")
+        return ",".join(content)
+
     # if needed: create cache file
     # if exist: gets data from cache
     # if needed: fetches data from server and writes it to cache
