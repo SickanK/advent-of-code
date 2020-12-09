@@ -6,7 +6,7 @@ i = Input(2020, 10).getData()
 # i = Input(2020, 10).getFromExample()
 
 
-def PartOne(info, step=25):
+def PartOne(info):
     info = strToArr(info)
 
     return 0
