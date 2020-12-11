@@ -23,4 +23,3 @@ def PartTwo(info):
 print(i)
 print(PartOne(i))
 print(PartTwo(i))
-
