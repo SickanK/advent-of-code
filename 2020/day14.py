@@ -32,4 +32,3 @@ print("Part 1:", PartOne(i))
 #     f"PartOne(i)", globals=locals(), number=1000))) + "ms")
 # print("Part 2:", str((timeit.timeit(
 #     f"PartTwo(i)", globals=locals(), number=1000))) + "ms")
-
