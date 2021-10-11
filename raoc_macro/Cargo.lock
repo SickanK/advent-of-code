@@ -3,14 +3,6 @@
 version = 3
 
 [[package]]
-name = "aoc2015"
-version = "0.1.0"
-dependencies = [
- "raoc",
- "raoc_macro",
-]
-
-[[package]]
 name = "autocfg"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

@@ -2,34 +2,6 @@ use dotenv::dotenv;
 use reqwest::header::COOKIE;
 use std::env;
 
-pub struct Gold {
-    year: u16,
-    day: u8,
-    ops: Box<dyn Fn(AocInput)>,
-}
-
-impl Gold {
-    pub fn run(&self) -> Result<(), Box<dyn std::error::Error>> {
-        (self.ops)(get_puzzle_input(self.year, self.day)?);
-
-        Ok(())
-    }
-}
-
-pub struct Silver {
-    year: u16,
-    day: u8,
-    ops: Box<dyn Fn(AocInput)>,
-}
-
-impl Silver {
-    pub fn run(&self) -> Result<(), Box<dyn std::error::Error>> {
-        (self.ops)(get_puzzle_input(self.year, self.day)?);
-
-        Ok(())
-    }
-}
-
 #[derive(Debug)]
 pub struct AocInput(String);
 
