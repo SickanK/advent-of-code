@@ -1,6 +1,5 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use raoc;
 use syn;
 use syn::Lit::Int;
 use syn::NestedMeta;
@@ -30,13 +29,16 @@ pub fn aoc(attrs: TokenStream, item: TokenStream) -> TokenStream {
     let name = &input.sig.ident;
     let block = &input.block;
     let output = &input.sig.output;
+    let inputs = &input.sig.inputs;
+    let mut inputs_iter = inputs.iter();
+    let input_name = inputs_iter.next().expect("msg");
 
     let year: u16 = args[0] as u16;
     let day: u8 = args[1] as u8;
 
     TokenStream::from(quote! {
-        pub fn #name(_: raoc::AocInput) #output {
-            let input = raoc::get_puzzle_input(#year, #day).ok().unwrap();
+        pub fn #name() #output {
+            let #input_name = raoc::get_puzzle_input(#year, #day).ok().unwrap();
 
             #block
         }

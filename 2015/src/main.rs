@@ -1,11 +1,7 @@
-use raoc;
 mod day1;
 
-// see if proc macro works with env variables
+// last thing!! save inputs in file :)
 
 fn main() {
-    match raoc::get_puzzle_input(2015, 1) {
-        Ok(t) => day1::day1(t),
-        _ => panic!(),
-    };
+    day1::gold()
 }
