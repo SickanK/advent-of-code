@@ -1,8 +1,21 @@
-use raoc::AocInput;
 use raoc_macro::aoc;
 
-#[aoc(2015, 1)]
-pub fn first(i: AocInput) {}
+#[aoc("test")]
+pub fn first(input: String) {
+    let mut floor: isize = 0;
 
-// #[aoc(2015, 1)]
-// pub fn second(input: AocInput) {}
+    for stair in input.chars() {
+        if stair == '(' {
+            floor += 1;
+            println!("up");
+        } else if stair == ')' {
+            println!("down");
+            floor -= 1;
+        }
+    }
+
+    println!("{}", floor);
+}
+
+#[aoc(2015, 1)]
+pub fn second(i: String) {}
