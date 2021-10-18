@@ -1,8 +1,9 @@
 mod day1;
+mod day2;
 
-// last thing!! save inputs in file :)
+// char iterator
 
 fn main() {
-    day1::first();
-    //day1::second();
+    //println!("First: {:?}", day2::first());
+    println!("Second: {:?}", day2::second());
 }
