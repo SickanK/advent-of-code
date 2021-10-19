@@ -1,3 +1,4 @@
+use raoc::utils::{input_lines, parse_split_of_lines, split_lines};
 use raoc_macro::aoc;
 
 // split by newline
@@ -7,7 +8,11 @@ use raoc_macro::aoc;
 //#[aoc("test")]
 #[aoc(2015, 2)]
 pub fn first(input: String) -> usize {
-    let split: Vec<&str> = input.lines().collect();
+    let split = input_lines(&input);
+    println!(
+        "{:?}",
+        parse_split_of_lines::<usize>(&split_lines("x", &split))
+    );
     let split2: Vec<Vec<usize>> = split
         .into_iter()
         .map(|x| x.split("x").map(|x| x.parse::<usize>().unwrap()).collect())
