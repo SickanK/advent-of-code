@@ -1,12 +1,9 @@
+pub mod utils;
+pub use utils::input_lines;
+
 use dotenv::dotenv;
 use reqwest::header::COOKIE;
 use std::{env, fs, io};
-
-pub struct AocInput(String);
-
-impl AocInput {
-    pub fn from(input: String) {}
-}
 
 pub fn get_local_puzzle_input(path: &String) -> Result<String, io::Error> {
     fs::read_to_string(&path)
@@ -26,13 +23,13 @@ pub fn save_puzzle_input(input: &String, path: &String) {
     fs::write(path, input).unwrap()
 }
 
-pub fn get_puzzle_input(year: u16, day: u8) -> Result<AocInput, Box<dyn std::error::Error>> {
+pub fn get_puzzle_input(year: u16, day: u8) -> Result<String, Box<dyn std::error::Error>> {
     dotenv().ok();
 
     let input_path = format!("./aoc_inputs/day{}", day);
 
     if let Ok(input_contents) = get_local_puzzle_input(&input_path) {
-        return Ok(AocInput::from(input_contents));
+        return Ok(input_contents);
     }
 
     let token: &str = &["session=", &env::var("TOKEN")?].join("");
@@ -49,5 +46,5 @@ pub fn get_puzzle_input(year: u16, day: u8) -> Result<AocInput, Box<dyn std::err
 
     save_puzzle_input(&input_resp, &input_path);
 
-    Ok(AocInput(input_resp))
+    Ok(input_resp)
 }
