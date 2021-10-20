@@ -1,14 +1,14 @@
 use std::fmt;
 use std::str::FromStr;
 
-pub fn input_lines(input: &str) -> Vec<String> {
+pub fn to_lines(input: &str) -> Vec<String> {
     let lines: Vec<&str> = input.lines().collect();
     let owned_lines: Vec<String> = lines.into_iter().map(|x| x.to_owned()).collect();
 
     owned_lines
 }
 
-pub fn split_lines<'a>(pat: &'a str, input: &Vec<String>) -> Vec<Vec<String>> {
+pub fn to_split_deep<'a>(pat: &'a str, input: &Vec<String>) -> Vec<Vec<String>> {
     let split_input: Vec<Vec<&str>> = input
         .iter()
         .map(|x| x.split(pat).collect::<Vec<&str>>())
@@ -22,7 +22,7 @@ pub fn split_lines<'a>(pat: &'a str, input: &Vec<String>) -> Vec<Vec<String>> {
     owned_split_input
 }
 
-pub fn parse_lines<P>(input: &Vec<String>) -> Vec<P>
+pub fn to_parsed<P>(input: &Vec<String>) -> Vec<P>
 where
     P: FromStr,
     <P as FromStr>::Err: fmt::Debug,
@@ -35,7 +35,7 @@ where
     parsed_lines
 }
 
-pub fn parse_split_of_lines<P>(input: &Vec<Vec<String>>) -> Vec<Vec<P>>
+pub fn to_parsed_deep<P>(input: &Vec<Vec<String>>) -> Vec<Vec<P>>
 where
     P: FromStr,
     <P as FromStr>::Err: fmt::Debug,

@@ -1,5 +1,4 @@
 pub mod utils;
-pub use utils::input_lines;
 
 use dotenv::dotenv;
 use reqwest::header::COOKIE;

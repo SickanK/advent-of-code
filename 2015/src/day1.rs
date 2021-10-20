@@ -1,5 +1,3 @@
-use raoc_macro::aoc;
-
 #[aoc(2015, 1)]
 pub fn first(input: String) -> isize {
     let mut floor: isize = 0;

@@ -1,25 +1,12 @@
-use raoc::utils::{input_lines, parse_split_of_lines, split_lines};
-use raoc_macro::aoc;
-
-// split by newline
-// split every one of them with "x"
-// make those numbers
+use raoc::utils::{to_lines, to_parsed_deep, to_split_deep};
 
 //#[aoc("test")]
 #[aoc(2015, 2)]
 pub fn first(input: String) -> usize {
-    let split = input_lines(&input);
-    println!(
-        "{:?}",
-        parse_split_of_lines::<usize>(&split_lines("x", &split))
-    );
-    let split2: Vec<Vec<usize>> = split
-        .into_iter()
-        .map(|x| x.split("x").map(|x| x.parse::<usize>().unwrap()).collect())
-        .collect();
+    let input = to_parsed_deep::<usize>(&to_split_deep("x", &to_lines(&input)));
 
     let mut totalsum: usize = 0;
-    for p in split2 {
+    for p in input {
         let a1 = p[0] * p[1];
         let a2 = p[1] * p[2];
         let a3 = p[0] * p[2];
@@ -40,14 +27,10 @@ pub fn first(input: String) -> usize {
 //#[aoc("test")]
 #[aoc(2015, 2)]
 pub fn second(input: String) -> usize {
-    let split: Vec<&str> = input.lines().collect();
-    let split2: Vec<Vec<usize>> = split
-        .into_iter()
-        .map(|x| x.split("x").map(|x| x.parse::<usize>().unwrap()).collect())
-        .collect();
+    let input = to_parsed_deep::<usize>(&to_split_deep("x", &to_lines(&input)));
 
     let mut total_ribbon: usize = 0;
-    for p in split2 {
+    for p in input {
         total_ribbon += p[0] * p[1] * p[2];
         let mut p2 = p.clone();
 
