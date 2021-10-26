@@ -11,4 +11,4 @@ proc-macro = true
 [dependencies]
 raoc = { path = "../raoc/" }
 quote = "1.0.10"
-syn = "1.0.80"
+syn = { version = "1.0.80", features = ["full"] }
