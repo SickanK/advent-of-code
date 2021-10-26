@@ -1,6 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::ItemFn;
+
 use syn::Lit::Int;
 use syn::NestedMeta;
 
